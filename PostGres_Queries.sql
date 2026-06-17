@@ -66,5 +66,4 @@ FROM doctors d
 JOIN appointments ON d.doctor_id = a.doctor_id
 GROUP BY d.name
 ORDER BY appointment_count DESC
-
 LIMIT 1;
