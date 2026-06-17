@@ -46,3 +46,25 @@ SELECT p.name, COUNT(a.appt_id) AS visit_count FROM patients p
 JOIN appointments a ON p.patient_id = a.patient_id
 GROUP BY p.name
 HAVING COUNT(a.appt_id) 1;
+Query 
+
+9. Highest Bill Amount
+
+SELECT p.name AS patient_name,
+b. amount AS highest_bill
+FROM bills b
+JOIN appointments a ON b.appt_id = a.appt_id
+JOIN patients p ON a.patient_id p.patient_id
+ORDER BY b.amount DESC
+LIMIT 1;
+
+10. Doctor with Maximum Appointments
+
+SELECT d.name AS doctor_name,
+COUNT(a.appt_id) AS appointment_count
+FROM doctors d
+JOIN appointments ON d.doctor_id = a.doctor_id
+GROUP BY d.name
+ORDER BY appointment_count DESC
+
+LIMIT 1;
